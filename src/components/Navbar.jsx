@@ -2,7 +2,6 @@
 import logosvg from '../assets/react.svg'
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
-import { cart } from '../store/Cart-store';
 
 function Navbar() {
   const [isActive, setActive] = useState(1);
@@ -10,7 +9,6 @@ function Navbar() {
     {id: 2, title:'Menu', link: '/menu'},
     {id: 3, title:'Book Table', link:'/book'}
   ]
-  // const count = cart((state) => state.count)
     return(
       <div className="hero_area" style={{background: '#000'}}>
     <header className="header_section">
