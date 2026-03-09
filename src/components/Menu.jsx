@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import logosvg from '../assets/react.svg'
 import data from '../service/data';
 import Card from './Card';
 
@@ -44,7 +43,7 @@ export default function Menu() {
         <div className="row grid" style={{position: "relative", height: "1330.5px"}}>
           {filteredData.map(({id,title,desc,price,style,img}, index) => {
           return (<div key={index} className="col-sm-6 col-lg-4 all pizza" style={{style}}>
-            <Card id={id} title={title} desc={desc} price={price} logo={logosvg} img={img}/>
+            <Card id={id} title={title} desc={desc} price={price} img={img}/>
           </div>)
           })}
         </div>

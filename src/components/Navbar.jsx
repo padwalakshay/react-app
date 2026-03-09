@@ -1,5 +1,3 @@
-// import './Navbar.css'
-import logosvg from '../assets/react.svg'
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 
@@ -36,9 +34,9 @@ function Navbar() {
               <a href="" className="user_link">
                 <i className="fa fa-user" aria-hidden="true"></i>
               </a>
-              <NavLink to='/orders' className="cart_link">
-                <img src={logosvg} style={{color:'#fff'}} alt="Cool Earth" /><span>{0}</span>
-               </NavLink>
+              <a href="" className="user_link">
+                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
               <form className="form-inline">
                 <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i className="fa fa-search" aria-hidden="true"></i>

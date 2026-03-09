@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { dataContext } from "../context/data-context"
 
-export default function Card({id,desc,title,price,logo,img}) {
+export default function Card({id,desc,title,price,img}) {
     
     const {updateData} = useContext(dataContext)
     function addproduct(event) {
@@ -23,8 +23,8 @@ export default function Card({id,desc,title,price,logo,img}) {
                             <h6>
                              {price}
                             </h6>
-                            <a onClick={() => addproduct({id,desc,title,img})}>
-                              <img src={logo}></img>
+                            <a className="user_link" onClick={() => addproduct({id,desc,title,img})}>
+                              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                             </a>
                           </div>
                         </div>
