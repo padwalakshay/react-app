@@ -8,8 +8,7 @@ function Navbar() {
   const [isActive, setActive] = useState(1);
   const navList = [{id: 1, title:'Home', link: '/home'},
     {id: 2, title:'Menu', link: '/menu'},
-    {id: 3, title:'About', link:'/about'},
-    {id: 4, title:'Book Table', link:'/book'}
+    {id: 3, title:'Book Table', link:'/book'}
   ]
   // const count = cart((state) => state.count)
     return(
