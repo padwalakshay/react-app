@@ -4,7 +4,6 @@ import Home from './Home';
 import Menu from './Menu.jsx';
 import ProtectedRoute from '../service/Protected';
 import {useState } from 'react';
-import About from './About';
 import Book from './Book';
 import Footer from './Footer';
 import Orders from './pages/Orders.jsx';
@@ -22,9 +21,9 @@ export default function Container() {
       <Navbar count={data.length}/>
       <dataContext.Provider value={{data, updateData}}>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu/>} />
-        <Route path="/about" element={<About/>} />
         <Route path="/orders" element={<Orders/>} />
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated}/>}>
           <Route path="/book" element={<Book/>} />

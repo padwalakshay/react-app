@@ -10,7 +10,7 @@ function Navbar() {
     {id: 3, title:'Book Table', link:'/book'}
   ]
     return(
-      <div className="hero_area" style={{background: '#000'}}>
+      <div className="hero_area" style={{background: '#222831'}}>
     <header className="header_section">
       <div className="container">
         <nav className="navbar navbar-expand-lg custom_nav-container ">
