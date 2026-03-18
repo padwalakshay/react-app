@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Book() {
-   const [selectedFruit, setSelectedFruit] = useState('banana'); 
+   const [selected, setSelected] = useState(1);
    return(
       <section className="book_section layout_padding">
     <div className="container">
@@ -24,35 +24,20 @@ export default function Book() {
                 <input type="email" className="form-control" placeholder="Your Email" />
               </div>
               <div>
-                <select className="form-control nice-select wide" value={selectedFruit} onChange={(e) => setSelectedFruit(e.target.value)} style={{"display": "block"}}>
-                  <option value="" disabled="" selected="">
-                    How many persons?
-                  </option>
-                  <option value={selectedFruit}>
+                <select className="form-control nice-select wide" value={selected} onChange={(e) => setSelected(e.target.value)} style={{"display": "block"}}>
+                  <option value="2">
                     2
                   </option>
-                  <option value="">
+                  <option value="3">
                     3
                   </option>
-                  <option value="">
+                  <option value="4">
                     4
                   </option>
-                  <option value="">
+                  <option value="5">
                     5
                   </option>
-                </select><div className="nice-select form-control wide" tabIndex="0"><span className="current">
-                    How many persons?
-                  </span><ul className="list"><li data-value="" className="option selected disabled">
-                    How many persons?
-                  </li><li data-value="" className="option">
-                    2
-                  </li><li data-value="" className="option">
-                    3
-                  </li><li data-value="" className="option">
-                    4
-                  </li><li data-value="" className="option">
-                    5
-                  </li></ul></div>
+                </select>
               </div>
               <div>
                 <input type="date" className="form-control" />
@@ -66,7 +51,8 @@ export default function Book() {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="map_container ">
+          <div className="map_container">
+            
           </div>
         </div>
       </div>

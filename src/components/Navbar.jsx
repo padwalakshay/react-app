@@ -7,6 +7,16 @@ function Navbar() {
     {id: 2, title:'Menu', link: '/menu'},
     {id: 3, title:'Book Table', link:'/book'}
   ]
+  const [addshow, removeShow] = useState(false);
+  const setNavbarToggle = (e) => {
+    if(e.ariaExpanded === 'false') {
+      e.setAttribute('aria-expanded', 'true');
+      removeShow(true);
+    } else {
+      e.setAttribute('aria-expanded', 'false');
+      removeShow(false);
+    }
+  }
     return(
       <div className="hero_area" style={{background: '#222831'}}>
     <header className="header_section">
@@ -18,11 +28,11 @@ function Navbar() {
             </span>
           </a>
 
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" onClick={(e) => setNavbarToggle(e.target)} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className=""> </span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className={addshow ? "collapse navbar-collapse show" : "collapse navbar-collapse"} id="navbarSupportedContent">
             <ul className="navbar-nav  mx-auto ">
               {navList.map(({id,link,title}) => {
               return <li key={id} onClick={() => setActive(id)} className={isActive == id ? 'nav-item active': 'nav-item'}>
