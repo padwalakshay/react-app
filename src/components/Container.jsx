@@ -8,6 +8,8 @@ import Book from './Book';
 import Footer from './Footer';
 import Orders from './pages/Orders.jsx';
 import { dataContext } from '../context/data-context.js';
+import ResearchPage from './pages/ResearcPage.jsx';
+// import search from './Search.jsx';
 
 export default function Container() {
     const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -19,12 +21,14 @@ export default function Container() {
         <>
       <BrowserRouter>
       <Navbar count={data.length}/>
+      <search/>
       <dataContext.Provider value={{data, updateData}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu/>} />
         <Route path="/orders" element={<Orders/>} />
+        <Route path="/research" element={<ResearchPage/>} />
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated}/>}>
           <Route path="/book" element={<Book/>} />
         </Route>

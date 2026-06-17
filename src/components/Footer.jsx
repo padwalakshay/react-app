@@ -73,9 +73,9 @@ export default function Footer() {
       <div className="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br></br>
+          <a href="#">Open Source Project</a><br></br>
           &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          <a href="#" target="_blank"> Open Source Community</a>
         </p>
       </div>
     </div>

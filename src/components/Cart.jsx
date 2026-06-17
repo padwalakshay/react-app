@@ -1,5 +1,5 @@
 import { useReducer } from "react"
-import { cart } from "../store/Cart-store"
+// import { cart } from "../store/Cart-store"
 
 function reducer(state, action) {
     if(action === 'increment') {

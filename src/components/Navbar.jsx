@@ -5,7 +5,8 @@ function Navbar() {
   const [isActive, setActive] = useState(1);
   const navList = [{id: 1, title:'Home', link: '/home'},
     {id: 2, title:'Menu', link: '/menu'},
-    {id: 3, title:'Book Table', link:'/book'}
+    {id: 3, title:'Book Table', link:'/book'},
+    {id: 4, title: 'Research', link: '/research'}
   ]
   const [addshow, removeShow] = useState(false);
   const setNavbarToggle = (e) => {
@@ -18,6 +19,7 @@ function Navbar() {
     }
   }
     return(
+      <>
       <div className="hero_area" style={{background: '#222831'}}>
     <header className="header_section">
       <div className="container">
@@ -47,11 +49,11 @@ function Navbar() {
               <a href="" className="user_link">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
               </a>
-              <form className="form-inline">
-                <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+              <div className="form-inline">
+                <button className="btn  my-2 my-sm-0 nav_search-btn">
                   <i className="fa fa-search" aria-hidden="true"></i>
                 </button>
-              </form>
+              </div>
               <a href="" className="order_online">
                 Order Online
               </a>
@@ -61,6 +63,7 @@ function Navbar() {
       </div>
     </header>
     </div>
+    </>
     )
 }
 

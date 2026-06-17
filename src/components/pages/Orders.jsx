@@ -1,5 +1,5 @@
 import Cart from "../Cart"
-import data from "../../service/data";
+// import data from "../../service/data";
 import { dataContext } from "../../context/data-context";
 import { useContext } from "react";
 

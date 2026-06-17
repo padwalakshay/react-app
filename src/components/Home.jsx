@@ -6,7 +6,7 @@ export default function Home() {
       <div className="row">
         <div className="col-md-6 ">
           <div className="img-box">
-            <img src="images/about-img.png" alt=""/>
+            <img src="https://react-app-image-vector.s3.us-east-1.amazonaws.com/about-img.png" alt=""/>
           </div>
         </div>
         <div className="col-md-6">

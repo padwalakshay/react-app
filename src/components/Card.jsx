@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { dataContext } from "../context/data-context"
 
 export default function Card({id,desc,title,price,img}) {
-    
+    "use no memo";
     const {updateData} = useContext(dataContext)
     function addproduct(event) {
         updateData(event)
@@ -10,7 +10,7 @@ export default function Card({id,desc,title,price,img}) {
     return(<div className="box">
                 <div>
                 <div className="img-box">
-                    <img src={`https://d34vtafkyex6rk.cloudfront.net/images/${img}`} alt=""/>
+                    <img src={img} alt=""/>
                 </div>
                         <div className="detail-box">
                           <h5>
@@ -21,7 +21,7 @@ export default function Card({id,desc,title,price,img}) {
                           </p>
                           <div className="options">
                             <h6>
-                             {price}
+                             ₹{price}
                             </h6>
                             <a className="user_link" onClick={() => addproduct({id,desc,title,img})}>
                               <i className="fa fa-shopping-cart" aria-hidden="true"></i>

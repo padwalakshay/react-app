@@ -52,7 +52,7 @@ export default function Book() {
         </div>
         <div className="col-md-6">
           <div className="map_container">
-            
+            sd
           </div>
         </div>
       </div>
