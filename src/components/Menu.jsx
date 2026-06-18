@@ -9,8 +9,7 @@ export default function Menu() {
     const [isActive, setActive] = useState(1);
     const [allData, setAllData] = useState([]);
     const [filter, setFilter] = useState('all');
-    const [query, setQuery] = useState("");
-    const [debouncedQuery, setDebouncedQuery] = useState("");
+    const [inputValue, setInputValue] = useState("");
 
     const searchStyle1 = {
         border: '2px solid transparent',
@@ -44,13 +43,13 @@ export default function Menu() {
       setFilter(param);
       setActive(id)
     }
-    async function getrecords(val) {
+    async function getrecords() {
          const payload = {
-            val: val 
+            val: inputValue.trim()
          }
          await axios.post(`${import.meta.env.VITE_MY_API_URL}/ai/search`, {data:JSON.stringify(payload)}).then(({data}) => {
-            // console.log(result);
             setAllData(data);
+            setInputValue('');
         });
     }
    return(
@@ -58,10 +57,10 @@ export default function Menu() {
     <div className="container">
       <div style={{"display": "inline-block"}}> 
     <span style={{ "display":"block", "marginLeft":"340px", "float":"left" }}>
-    <input className="search" style={searchStyle1} placeholder="search">
+    <input className="search" style={searchStyle1} placeholder="search" onChange={(e) => setInputValue(e.target.value)}>
     </input>
     </span>
-    <span style={{"float":"right", "cursor":"pointer"}} onClick={(e) => getrecords(e.target.value)}><i className="fa fa-lg fa-search" aria-hidden="true"></i></span>
+    <span style={{"float":"right", "cursor":"pointer"}} onClick={() => getrecords()}><i className="fa fa-lg fa-search" aria-hidden="true"></i></span>
     </div>
       <div className="heading_container heading_center">
         <h2>
