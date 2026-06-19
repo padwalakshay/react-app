@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import data from '../service/data';
 import Card from './Card';
-import debounce from '../utility/debounce';
+import Spinner from './spinner';
 
 export default function Menu() {
   "use no memo";
@@ -10,6 +9,7 @@ export default function Menu() {
     const [allData, setAllData] = useState([]);
     const [filter, setFilter] = useState('all');
     const [inputValue, setInputValue] = useState("");
+    const [loading, setLoading] = useState(true);
 
     const searchStyle1 = {
         border: '2px solid transparent',
@@ -33,8 +33,10 @@ export default function Menu() {
     ]
     useEffect(() => {
         (async () => {
+              setLoading(true);
               await axios.get(`${import.meta.env.VITE_MY_API_URL}/api/products/${filter}`).then((result) => {
               setAllData(result.data);
+              setLoading(false);
             })
         })()
     },[filter])
@@ -47,17 +49,19 @@ export default function Menu() {
          const payload = {
             val: inputValue.trim()
          }
+         setLoading(true);
          await axios.post(`${import.meta.env.VITE_MY_API_URL}/ai/search`, {data:JSON.stringify(payload)}).then(({data}) => {
             setAllData(data);
-            setInputValue('');
+            setInputValue("");
+            setLoading(false);
         });
     }
    return(
-      <section className="food_section layout_padding">
+    <section className="food_section layout_padding">
     <div className="container">
       <div style={{"display": "inline-block"}}> 
     <span style={{ "display":"block", "marginLeft":"340px", "float":"left" }}>
-    <input className="search" style={searchStyle1} placeholder="search" onChange={(e) => setInputValue(e.target.value)}>
+    <input className="search" style={searchStyle1} value={inputValue} placeholder="eg: list all pizza under 300" onChange={(e) => setInputValue(e.target.value)}>
     </input>
     </span>
     <span style={{"float":"right", "cursor":"pointer"}} onClick={() => getrecords()}><i className="fa fa-lg fa-search" aria-hidden="true"></i></span>
@@ -72,7 +76,8 @@ export default function Menu() {
         return <li key={id} className={isActive == id ? 'active': ''} onClick={(e) => handleClick(title.toLowerCase(), id)}>{title}</li>
         })}
       </ul>
-
+      
+      {loading ? (<Spinner loader={loading} /> ): (
       <div className="filters-content">
         <div className="row grid">
           {allData.map(({id,title,desc,price,img}, index) => {
@@ -82,6 +87,7 @@ export default function Menu() {
           })}
         </div>
       </div>
+      )}
     </div>
   </section>
    )
